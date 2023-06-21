@@ -32,12 +32,14 @@ _[include your favorite visualization from this project here]_
 
 ## Project 03
 
-In this project, I explored ... _[short description of the data visualizations you for this part of the project produced goes here]_
+In this project, I explored the data set obtained from FSU which contains information of the weather at the Tampa International Airport (TPA). The main goal was to recreate data visualizations generated with the data from 2016. The updated visuals illustrate the data from 2022. Moreover, I explored the relationship of days on the month and average percipitation. 
+
 
 **Sample data visualization:** 
 
-_[include your favorite visualization from this project here]_
-<img src="https://github.com/reisanar/figs/raw/master/concrete_density.png" width="80%" height="80%">
+I included the chart with information about average percipitation depending on the day of the month here:
+
+<img src="https://raw.githubusercontent.com/Tommnn/dataviz_final_project3/main/figures/percip_plot.png" width="60%" height="60%">
 
 
 ### Moving Forward

@@ -131,7 +131,7 @@ library(ggnewscale)
 
 
 ```{r}
-ggplot(
+density_plot <- ggplot(
   weather_tpa, 
   aes(x = weather_tpa$max_temp, y = weather_tpa$month, fill = stat(x))) +
   geom_density_ridges_gradient(scale = 3, quantile_lines = TRUE, quantiles = c(0.5), color = "black") +
@@ -142,6 +142,9 @@ ggplot(
   theme(plot.caption = element_text(hjust=0.5, size=rel(1.2), face = "bold")) 
 ```
 
+```{r}
+ggsave("/Users/tommann/Developer/dataviz_final_project3/figures/density_plot.png", density_plot)
+```
 
 
 (e) Create a plot of your choice that uses the attribute for precipitation _(values of -99.9 for temperature or -99.99 for precipitation represent missing data)_.

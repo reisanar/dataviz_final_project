@@ -1,8 +1,7 @@
 # Data Visualization and Reproducible Research
 
-> Firstname Lastname. 
-gjh
-Learn more about me in my [GitHub profile page](https://github.com/reiminer). 
+> @Tommnn.
+Learn more about me in my [GitHub profile page](https://github.com/Tommnn/). 
 
 
 The following is a sample of products created during the _"Data Visualization and Reproducible Research"_ course.

@@ -163,12 +163,16 @@ weather_tpa_day <- weather_tpa %>%
 
 
 ```{r}
-ggplot(weather_tpa_day, aes(x = day, y = percip_day)) +
+percip_plot <- ggplot(weather_tpa_day, aes(x = day, y = percip_day)) +
   geom_bar(stat = "identity", fill = "lightblue", color = "black") +
   labs(title = "Average Precipitation by Day of the Month", x = "Day of the Month", y = "Average Precipitation") +
   geom_hline(yintercept = mean(weather_tpa_day$percip_day), color = "red", linetype = "dashed") +
   theme_bw() +
   scale_x_continuous( breaks = seq(1,31, by = 1))
+```
+
+```{r}
+ggsave("/Users/tommann/Developer/dataviz_final_project3/figures/percip_plot.png", percip_plot)
 ```
 
 

@@ -9,4 +9,8 @@ output:
 
 # Data Visualization Project 01
 
-_revised version of mini-project 01 goes here_
+# Motivation and changes
+
+For Mini Project 1 the main goal is to work on the critique I received. First, I implement an README.md file that gives an executive summary for the reader. Moreover, the report will be adjusted. Implementing my most interesting plots will help to convey the message and make the data story more exciting. The third and final step is to improve my data visualizations. Using themes and change labels are tools to make my plots easier readable.
+
+

@@ -1,0 +1,211 @@
+---
+title: "Data Visualization - Mini-Project 1"
+author: "Tom Mann `tmann4511@floridapoly.edu`"
+output: html_notebook
+---
+
+# Read in the data
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+WC_data <- read_csv("https://raw.githubusercontent.com/reisanar/datasets/master/WorldCupMatches.csv")
+```
+>> For my analysis I will utilize the World Cup dataset. I am a big soccer fan and particularly interested in the World Cup 2014. This is due to the fact that Germany won this WC. I wanna explore the data to find out how we can win the next World cup :)
+
+# First data visualization: Focus on Goals
+
+>> In this section, the goal is to find out if home or away teams scored more goals. It is important to acknowledge that there is no real home advantage, as all games were played in Brazil.
+
+```{r}
+WC_data_goals <- WC_data %>% 
+  filter(Year == 2014) %>% 
+  summarize(
+    Home_Team_Goals = sum(`Home Team Goals`),
+    Away_Team_Goals = sum(`Away Team Goals`)
+  )
+```
+
+>> Practice the function pivot_longer to reshape the data frame into long format
+
+```{r}
+WC_data_goals_long <- WC_data_goals %>% 
+  pivot_longer(cols = everything(), names_to = "category", values_to = "value")
+```
+
+```{r}
+ggplot(WC_data_goals_long, aes(x = category, y = value, fill = category)) +
+  geom_bar(stat = "identity") +
+  labs(x = "", y = "Total Goals") +  # Customize axis labels
+  ggtitle("Goals scored by home vs. away teams")
+```
+
+# Second data vizualisation : Focusing on attendance and stadiums
+
+```{r}
+stadium_attendance <- WC_data %>% 
+  filter(Year == 2014) %>% 
+  group_by(Stadium) %>% 
+  summarize(
+    avg_attendance = mean(Attendance)
+  ) %>% 
+  arrange(desc(avg_attendance)) %>% 
+  na.omit()
+```
+
+```{r}
+ggplot(stadium_attendance, aes(x = Stadium, y = avg_attendance, fill = Stadium)) +
+  geom_bar(stat = "identity") +
+  labs(x = "Stadium", y = "Average Attendance") +
+  geom_hline(yintercept = mean(stadium_attendance$avg_attendance), color = "red", linetype = "dashed") +
+  ggtitle("Average Attendance per Stadium") + 
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) 
+```
+
+>> Above, you can see a barchart with all the stadiums and average attendance per game. The Estadio do Maracana has the highest number of attendance per game. It is also the biggest stadium in Brazil and the one in which Germany beat Brazil 7-1.
+
+# Third data visualization: Number of Games played in each stadium
+
+>> In this section, I want to explore how many games were played in each stadium. Below it can be seen that two stadiums had 10 Games played. The least amount of games are 4. The Estadio de Maracana and the Estadio de Nacional are the ones were most of the Games have been played.
+
+```{r}
+WC_stadium_count <- WC_data %>% 
+  filter(Year == "2014") %>% 
+  count(Stadium)
+```
+
+```{r}
+ggplot(WC_stadium_count, aes(x = reorder(Stadium, n), y = n)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  xlab("Stadium") +
+  ylab("Number of Games") +
+  ggtitle("Number of Games played in Each Stadium") + 
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+   scale_y_continuous(breaks = seq(0, max(WC_stadium_count$n), by = 1), # to get a continuous y axis with values 0 to 10, only using whole numbers
+                     limits = c(0, ceiling(max(WC_stadium_count$n))))
+
+```
+
+
+
+# Add on: Exploring next weeks chapter
+
+In this section, I want to explore how I can vizualise the location of all Stadiums on a map. Thus, I use the google maps API and a brazil map to locate all stadiums. With the geocode API, I found the longitude and latitude of the cities and were able to visualize the location of all stadiums. Two cities were located wrong. One is Salvador and the other is Natal. What surprised me was that even if I detail the region to Brazil, Salavador and Natal are still found and located in different countries.
+
+
+```{r}
+# Loading all necessary packages
+library(ggplot2)
+library(maps)
+library(mapdata)
+library(ggmap)
+```
+
+```{r}
+# Filtering and selecting only necessary observations
+WC_location <- WC_data %>% 
+  filter(Year == "2014") %>% 
+  select(Stadium, City)
+```
+
+
+```{r}
+WC_location$City <- as.character(WC_location$City)
+```
+
+>> Sourcing the API from my Desktop instead of typing it in!
+
+```{r}
+api_key <- readLines("/Users/tommann/Desktop/api.txt")
+```
+
+```{r}
+ggmap::register_google(key = api_key, write = TRUE)
+```
+
+```{r}
+geocode_result <- geocode(as.character(WC_location$City), output = "latlon", source = "google", key = api_key)
+```
+```{r}
+WC_location$latitude <- geocode_result$lat
+WC_location$longitude <- geocode_result$lon
+```
+
+```{r}
+# Retrieve map data for Brazil
+brazil_map <- map_data("world", region = "Brazil")
+```
+
+```{r}
+WC_location
+```
+
+
+```{r}
+map_plot <- ggplot() +
+  geom_polygon(data = brazil_map, aes(x = long, y = lat, group = group), fill = "lightgray", color = "white") +
+  geom_point(data = WC_location, aes(x = longitude, y = latitude), color = "red", size = 3) +
+  coord_map() +
+  theme_bw()
+
+map_plot
+```
+
+```{r}
+WC_location %>% 
+  filter(latitude > 10)
+```
+
+```{r}
+WC_location %>% 
+  filter(longitude > 10)
+```
+
+```{r}
+geocode_result_BR <- geocode(as.character("WC_location$City, Brazil"), output = "latlon", source = "google", key = api_key)
+```
+
+```{r}
+WC_location$latitude <- geocode_result$lat
+WC_location$longitude <- geocode_result$lon
+```
+
+```{r}
+# Retrieve map data for Brazil
+brazil_map <- map_data("world", region = "Brazil")
+```
+
+```{r}
+map_plot <- ggplot() +
+  geom_polygon(data = brazil_map, aes(x = long, y = lat, group = group), fill = "lightgray", color = "white") +
+  geom_point(data = WC_location, aes(x = longitude, y = latitude), color = "red", size = 3) +
+  coord_map() +
+  theme_bw()
+
+map_plot
+```
+
+>> I am gonna adjust the longitude and latitude of both outliers manually to get a better result.
+
+```{r}
+WC_location[WC_location$City == "Salvador", "latitude"] <- -12.974722
+WC_location[WC_location$City == "Salvador", "longitude"] <- -38.476665
+WC_location[WC_location$City == "Natal", "latitude"] <- -5.812757
+WC_location[WC_location$City == "Natal", "longitude"] <- -35.2000
+```
+
+```{r}
+map_plot <- ggplot() +
+  geom_polygon(data = brazil_map, aes(x = long, y = lat, group = group), fill = "lightgray", color = "white") +
+  geom_point(data = WC_location, aes(x = longitude, y = latitude), color = "red", size = 3) +
+  coord_map() +
+  theme_bw()
+
+map_plot
+```
+>> Tadaaa... now we can see that all points are within Brazil. It is interesting to see that most Stadiums lay on the east coast of Brazil.

@@ -1,0 +1,40 @@
+---
+title: "Data Visualization - Mini-Project 1"
+author: "Tom Mann `tmann4511@floridapoly.edu`"
+output: html_notebook
+---
+
+# What were the original charts you planned to create for this assignments?
+
+First of all, I wanted to focus on the World Cup 2014. This is due to the fact that Germany won that tournament and I can remember that I watched almost every game.
+
+I wanted to create one chart that contain information about goals, another one about the attendance of viewers and some information about stadiums.
+
+Therefore, I created a bar chart with information about home and away goals. 
+
+Second, the bar chart with attendees shows how many viewers attended a game on average. 
+
+Third, I created a chart to see how many games were played in each stadium. To foster my knowledge in mapping information, I created a brazil map and found out where all the stadiums are located.
+
+# What story could you tell with your plots?
+
+"Soccer has the largest average home advantage across leagues." ("https://www.chicagobooth.edu/review/home-field-advantage-facts-and-fiction#:~:text=Soccer%20has%20the%20largest%20average,are%20won%20by%20home%20teams.") To investigate this quote, I looked at home and away goals. We can see, that home teams score more goals on average. Besides that, there is no real advantage of being a home team in a World Cup. All games are played on "neutral ground". The only team that had an home advantage was the Brazilian Team.
+
+The attendees of a football game create a unique environment that can have a big impact on the game. On average a Bundesliga Stadium has 43,000 viewers every game. The highest number of attendees ever were counted in Glasgow. 1937 almost 150,000 people watched the Game Scotland against England. In our bar chart, the Estadio de Maracana is the one with most attendees. The capacity of the stadium is 76,935.
+
+It can also be beneficial to play in the same stadium for more than one time. This is due to travel effort or existing routines. If we take a look at the map of all stadiums, the travel effort can be very high going from stadium to stadium. This can influence the regenaration and practice schedules of teams.
+
+# How did you apply the principles of data vizualizations and design for this assignment?
+
+Using Design Principles such as Contrast, Repetition, Alignment and Proximity help to improve visuals. Moreover, there are Gestalt Principles that can bring your illustrations in order and make them more appealing for the viewer.
+
+I try to use contrast in a lot of charts to make it more clear that two items are not exactly the same. Moreover, I repeat some aspects in the charts throughout the entire markdown document. This helps to convey a message and tell a story with visuals.
+
+I try to work with different techniques and aesthetics to design my visuals. For example, did I fill by Stadium for my second chart to distinguish better between the stadiums. By adding the horizontal line for the total average, you also get a better overview.
+
+The third bar chart is also arranged by number of games played. The viewer can easier access the information and see which stadium was used most. Furthermore, the grouping of related items was done by investigation some information about the stadiums first and then adding a map of those. 
+
+Additionally, I tried to allign all the charts with each other and also with some information in form of text.
+
+Trying to work with different themes helped me to learn and foster my knowledge in using design principles. It gets more important to use the principles when processing and visualizing a lot of information.
+

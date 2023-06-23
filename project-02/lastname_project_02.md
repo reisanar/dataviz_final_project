@@ -28,7 +28,7 @@ To visually represent the findings, several data visualizations were created:
 
 Bar Chart: A bar chart was generated to display the top 8 complaint types and their respective counts. This chart provided a clear overview of the most prevalent complaint types.
 
-<img src="https://github.com/Tommnn/dataviz_final_project3/blob/main/figures/plotly_ia.html" width="80%" height="80%">
+<img src="https://github.com/Tommnn/dataviz_final_project3/blob/main/figures/plot_comp.png" width="80%" height="80%">
 
 
 Spatial Map: A spatial map was created to depict the geographical distribution of service complaints. Different complaint types were represented by color-coded markers, allowing for easy identification of complaint hotspots.

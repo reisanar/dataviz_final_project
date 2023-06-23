@@ -9,12 +9,11 @@ The following is a sample of products created during the _"Data Visualization an
 
 ## Project 01
 
-In the `project_01/` folder you can find... _[add short description of your revised project here]_
+In the `project_01/` folder you can find an analysis of the World Cup dataset focusing on the year 2014. Several visualizations help to get a better picture of goals scored, average attendees and more. My favorite data visualization is the map I created. It contains all the locations of stadiums in which games had been played.
 
 **Sample data visualization:** 
 
-_[include your favorite visualization from this project here]_
-<img src="https://github.com/reisanar/figs/raw/master/echarts.png" width="70%" height="70%">
+<img src="https://raw.githubusercontent.com/Tommnn/dataviz_final_project3/main/figures/map_brazil.png" width="60%" height="60%">
 
 
 ## Project 02

@@ -22,7 +22,7 @@ For Mini Project 1 the main goal is to work on the critique I received. First, I
 
 We can see, that home teams score more goals on average (see Figure below). Besides that, there is no real advantage of being a home team in a World Cup. All games are played on "neutral ground". The only team that had an home advantage was the Brazilian Team.
 
-<img src="https://raw.githubusercontent.com/Tommnn/dataviz_final_project3/main/figures/attendance_brazil.png" width="60%" height="60%">
+<img src="https://raw.githubusercontent.com/Tommnn/dataviz_final_project3/main/figures/attendance_brazil.png" width="70%" height="70%">
 
 The attendees of a football game create a unique environment that can have a big impact on the game. On average a Bundesliga Stadium has 43,000 viewers every game. The highest number of attendees ever were counted in Glasgow. 1937 almost 150,000 people watched the Game Scotland against England. In our bar chart, the Estadio de Maracana is the one with most attendees. The capacity of the stadium is 76,935.
 
